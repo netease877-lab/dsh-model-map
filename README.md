@@ -6,7 +6,9 @@
 
 **English** | [简体中文](#简体中文)
 
-Map your third-party provider's models **onto official DeepSeek models** — pick a provider model, pick an official model, save. The mapped model instantly gains the official entry's image input (vision), thinking-effort levels, and — the piece other plugins miss — the **official DeepSeek wire dialect** (`thinking` + `reasoning_effort`), so DeepSeek-protocol relays accept the request exactly as they would the official API's.
+Give the **DeepSeek models served by your third-party provider** the official capabilities they ship without — thinking-effort levels and vision — by mapping them onto official DeepSeek models. Pick a provider model, pick an official model, save. The mapped model instantly gains the official entry's image input (vision), thinking-effort levels, and — the piece other plugins miss — the **official DeepSeek wire dialect** (`thinking` + `reasoning_effort`), so DeepSeek-protocol relays accept the request exactly as they would the official API's.
+
+> **Scope: DeepSeek models only.** This plugin exists for one problem: third-party providers serving *DeepSeek* models (official-API relays, aggregators, self-hosted gateways) ship them without thinking levels or vision. It is **not** a general adapter that makes other vendors' models (GPT, Gemini, Qwen, GLM, …) vision-capable or thinking-capable — their wire dialects differ and are out of scope.
 
 ```sh
 dsh plugin --profile web add github:netease877-lab/dsh-model-map
@@ -78,7 +80,9 @@ The host half is self-contained (schemastery vendored in); the client half resol
 
 # dsh-model-map（模型映射）
 
-把第三方供应商的模型**映射成官方 DeepSeek 模型**：左边选第三方模型，右边选官方模型，保存即生效——第三方模型立刻获得所选官方条目的识图、思考强度档位，以及其他同类插件没有的那块：**官方 DeepSeek 线缆方言**（`thinking` + `reasoning_effort`），DeepSeek 协议的中转站会像对待官方 API 一样接受请求。
+**解决一个具体问题：第三方供应商提供的 DeepSeek 模型没有思考强度档位和识图**。把它们映射成官方 DeepSeek 模型即可——左边选第三方模型，右边选官方模型，保存即生效：立刻获得官方条目的识图、思考强度档位，以及其他同类插件没有的那块：**官方 DeepSeek 线缆方言**（`thinking` + `reasoning_effort`），DeepSeek 协议的中转站会像对待官方 API 一样接受请求。
+
+> **范围：只针对 DeepSeek 模型。** 适用于官方 API 中转站、聚合站、自建网关等提供 DeepSeek 模型的第三方供应商。它**不是**让其他厂商模型（GPT、Gemini、Qwen、GLM 等）获得思考和识图的通用适配器——那些模型的请求方言不同，不在本插件范围内。
 
 ```sh
 dsh plugin --profile web add github:netease877-lab/dsh-model-map
